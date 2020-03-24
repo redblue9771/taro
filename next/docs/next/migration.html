@@ -1,0 +1,347 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>从旧版本迁移到 Taro Next · Taro</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="这是一篇针对旧版本用户升级到 Taro Next 的迁移指南。因为本章内容包含了许多详尽的阐述和迁移例子，所以看起来有一些长。但请不要担心，Taro Next  大部分用法还是和旧版本一样的。**本章没有提到的内容，你可以像旧版本的 Taro 一样操作或使用**。"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="从旧版本迁移到 Taro Next · Taro"/><meta property="og:type" content="website"/><meta property="og:url" content="https://taro.jd.com/taro/next/index.html"/><meta property="og:description" content="这是一篇针对旧版本用户升级到 Taro Next 的迁移指南。因为本章内容包含了许多详尽的阐述和迁移例子，所以看起来有一些长。但请不要担心，Taro Next  大部分用法还是和旧版本一样的。**本章没有提到的内容，你可以像旧版本的 Taro 一样操作或使用**。"/><meta property="og:image" content="https://taro.jd.com/taro/next/img/logo-taro.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://taro.jd.com/taro/next/img/logo-taro.png"/><link rel="shortcut icon" href="/taro/next/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/Vs.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://jdc.jd.com/demo/talenttest/js/url.js"></script><script type="text/javascript" src="https://storage.jd.com/taro-resource/tongji.js" async=""></script><script type="text/javascript" src="https://storage.jd.com/taro-docs/taro-doc-hotjar.js" async=""></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/taro/next/js/scrollSpy.js"></script><link rel="stylesheet" href="/taro/next/css/prism.css"/><link rel="stylesheet" href="/taro/next/css/main.css"/><script src="/taro/next/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/taro/next/"><img class="logo" src="/taro/next/img/logo-taro.png" alt="Taro"/><h2 class="headerTitleWithLogo">Taro</h2></a><a href="/taro/next/versions.html"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/taro/next/docs/next/README.html" target="_self">文档</a></li><li class=""><a href="/taro/next/docs/next/components-desc.html" target="_self">组件库</a></li><li class=""><a href="/taro/next/docs/next/apis/about/desc.html" target="_self">API</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://taro-ui.jd.com" target="_self">Taro-UI</a></li><li class=""><a href="https://taro-ext.jd.com" target="_self">物料市场</a></li><li class=""><a href="https://taro-club.jd.com" target="_self">论坛</a></li><li class=""><a href="https://github.com/NervJS/taro" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>迁移指南</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">关于Taro<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/README.html">Taro 介绍</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/team.html">Taro 团队</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">快速开始<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/GETTING-STARTED.html">安装及使用</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/composition.html">更多资源</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/before-dev-remind.html">各端开发前注意</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">基础教程<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/react.html">React</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/vue.html">Vue</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/nerv.html">Nerv</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/tutorial.html">框架</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/project-config.html">项目配置</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/router.html">路由功能</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/size.html">设计稿及尺寸单位</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/static-reference.html">静态资源引用</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">多端开发</h4><ul><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/envs.html">跨平台开发</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/envs-debug.html">多端同步调试</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/wxcloud.html">小程序云开发模板</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/miniprogram-plugin.html">小程序插件开发</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">进阶指南<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/config.html">编译配置</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/config-detail.html">编译配置详情</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/hooks.html">Hooks</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/html.html">渲染 HTML</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/prerender.html">预渲染（Prerender）</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/mini-third-party.html">使用小程序原生第三方组件和插件</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/hybrid.html">Taro 代码与小程序代码混写</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">迁移指南<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/taro/next/docs/next/migration.html">从旧版本迁移到 Taro Next</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">社区生态<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/redux.html">使用 Redux</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/css-modules.html">使用 CSS Modules</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/template.html">项目模板</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/report.html">接入统计平台</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/join-in.html">加入社区共建</a></li><li class="navListItem"><a class="navItem" href="/taro/next/docs/next/CONTRIBUTING.html">CONTRIBUTING</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/nervjs/taro/edit/master/docs/migration.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">从旧版本迁移到 Taro Next</h1></header><article><div><span><p>这是一篇针对旧版本用户升级到 Taro Next 的迁移指南。因为本章内容包含了许多详尽的阐述和迁移例子，所以看起来有一些长。但请不要担心，Taro Next  大部分用法还是和旧版本一样的。<strong>本章没有提到的内容，你可以像旧版本的 Taro 一样操作或使用</strong>。</p>
+<p>事实上，你并不需要去更改任何业务的逻辑代码，许多更改使用编辑器的「查找/替换」就可以完成。你甚至不需要完整地阅读整章内容（重点在 1，2 小节， <a href="#API">API</a> 和 <a href="#项目/页面配置">项目/页面配置</a>），只有当出问题时定位到具体的小节即可。</p>
+<p>更新到 Taro Next 首先需要更新项目依赖：</p>
+<pre><code class="hljs css language-bash"><span class="token comment"># 更新 CLI</span>
+$ <span class="token function">npm</span> i -g @tarojs/cli@next
+<span class="token comment"># 在项目目录更新项目依赖</span>
+$ <span class="token function">npm</span> i @tarojs/runtime@next @tarojs/mini-runner@next @tarojs/components@next @tarojs/taro@next
+$ <span class="token function">npm</span> i react @tarojs/react@next <span class="token comment"># 如果使用 React</span>
+$ <span class="token function">npm</span> i nervjs <span class="token comment"># 如果使用 Nerv</span>
+<span class="token comment"># CLI 命令和以前一模一样</span>
+$ taro build --type weapp --watch
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="api"></a><a href="#api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API</h2>
+<p>在旧版本 Taro 中，我们把所有面向应用开发者的 API 都放在 <code>@tarojs/taro</code> 里，一个典型的 Taro 组件/页面会像这样：</p>
+<pre><code class="hljs css language-jsx"><span class="token comment">// 类组件</span>
+<span class="token keyword">import</span> Taro<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@tarojs/taro'</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Wallace</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    <span class="token function">componentDidMount</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      Taro<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token comment">/* do something */</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token function">render</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 函数式组件</span>
+<span class="token keyword">import</span> Taro<span class="token punctuation">,</span> <span class="token punctuation">{</span> useEffect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@tarojs/taro'</span>
+
+<span class="token keyword">function</span> <span class="token function">Tall</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      Taro<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token comment">/* do something */</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>在 Taro Next 中，属于框架本身的 API 从框架自己的包中引入，其它的 API 仍然从 <code>@tarojs/taro</code> 引入。使用哪个框架来进行开发完全由开发者来决定。</p>
+<pre><code class="hljs css language-jsx"><span class="token keyword">import</span> Taro <span class="token keyword">from</span> <span class="token string">'@tarojs/taro'</span>
+<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span>  <span class="token keyword">from</span> <span class="token string">'react'</span> <span class="token comment">// Component 是来自于 React 的 API</span>
+<span class="token comment">// 从 nervjs 中引入，那运行的就是 Nerv</span>
+<span class="token comment">// import { Component } from 'nervjs'</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Reporter</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">componentDidMount</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Taro<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token comment">/* do something */</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 函数式组件</span>
+<span class="token keyword">import</span> Taro <span class="token keyword">from</span> <span class="token string">'@tarojs/taro'</span>
+<span class="token comment">// useEffect 是来自于 React 的 API</span>
+<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useEffect <span class="token punctuation">}</span>  <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token comment">// 从 nervjs 中引入，那运行的就是 Nerv</span>
+<span class="token comment">// import { useEffect } from 'nervjs'</span>
+
+<span class="token keyword">function</span> <span class="token function">Fast</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    Taro<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token comment">/* do something */</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>Nerv 是凹凸实验室的一个开源类 React 框架，体积比 React 更小，多数情况性能表现也比 React 更好。但某些 React 生态的库兼容性可能会出现问题。</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="项目页面配置"></a><a href="#项目页面配置" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>项目/页面配置</h2>
+<p>在旧版本 Taro 中，页面/项目的配置挂载在类组件的类属性或函数式的属性上，通过 AST 分析取出来，然后生成 JSON 文件。但这样做，项目页面的配置就无法动态地生成：</p>
+<pre><code class="hljs css language-jsx"><span class="token comment">// app.js 项目配置</span>
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  config <span class="token operator">=</span> <span class="token punctuation">{</span>
+    pages<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">'pages/index/index'</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    window<span class="token operator">:</span> <span class="token punctuation">{</span>
+      backgroundTextStyle<span class="token operator">:</span> <span class="token string">'light'</span><span class="token punctuation">,</span>
+      navigationBarBackgroundColor<span class="token operator">:</span> <span class="token string">'#fff'</span><span class="token punctuation">,</span>
+      navigationBarTitleText<span class="token operator">:</span> <span class="token string">'WeChat'</span><span class="token punctuation">,</span>
+      navigationBarTextStyle<span class="token operator">:</span> <span class="token string">'black'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// index.js 页面配置</span>
+<span class="token keyword">function</span> <span class="token function">Index</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+
+Index<span class="token punctuation">.</span>config <span class="token operator">=</span> <span class="token punctuation">{</span>
+  navigationBarTitleText<span class="token operator">:</span> <span class="token string">'首页'</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p>在 Taro Next 中，会有一个新的文件：<code>*.config.js</code> ，<code>*</code> 代表你页面/项目文件的文件名，<code>config</code> 文件必须和页面/项目文件在同一文件夹。在这个文件里你可以使用任意合法的 JavaScript 语法，只要最终把配置作为对象通过 <code>export default</code> 出去即可：</p>
+<pre><code class="hljs css language-jsx"><span class="token comment">// app.js 项目文件</span>
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// app.config.js</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  pages<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'pages/index/index'</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  window<span class="token operator">:</span> <span class="token punctuation">{</span>
+    backgroundTextStyle<span class="token operator">:</span> <span class="token string">'light'</span><span class="token punctuation">,</span>
+    navigationBarBackgroundColor<span class="token operator">:</span> <span class="token string">'#fff'</span><span class="token punctuation">,</span>
+    navigationBarTitleText<span class="token operator">:</span> <span class="token string">'WeChat'</span><span class="token punctuation">,</span>
+    navigationBarTextStyle<span class="token operator">:</span> <span class="token string">'black'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// index.js 页面文件</span>
+<span class="token keyword">function</span> <span class="token function">Index</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// index.config.js 页面配置</span>
+<span class="token keyword">const</span> title <span class="token operator">=</span> <span class="token string">'首页'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  navigationBarTitleText<span class="token operator">:</span> title
+<span class="token punctuation">}</span>
+</code></pre>
+<p>一个完整的项目文件结构示例会像这样：</p>
+<pre><code class="hljs">.
+├── app<span class="hljs-selector-class">.config</span><span class="hljs-selector-class">.js</span> <span class="hljs-comment">// 入口文件项目配置</span>
+├── app<span class="hljs-selector-class">.js</span>
+├── app<span class="hljs-selector-class">.scss</span>
+├── components
+│   └── result<span class="hljs-selector-class">.js</span> <span class="hljs-comment">// 组件若不使用第三方组件则无需配置</span>
+└── pages
+    └── index
+        ├── index<span class="hljs-selector-class">.config</span><span class="hljs-selector-class">.js</span> <span class="hljs-comment">// index 的页面配置</span>
+        └── index<span class="hljs-selector-class">.js</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="使用第三方-react-库"></a><a href="#使用第三方-react-库" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>使用第三方 React 库</h2>
+<p>如果你需要引入 React 相关生态的库，直接通过 <code>npm install</code> 安装然后引入使用即可，Taro 不会再维护类似于 <code>taro-redux</code> 、<code>taro-mobx</code> 之类的库。</p>
+<pre><code class="hljs css language-jsx"><span class="token comment">// 当使用了 JSX 时，babel 会隐式地调用 React.createElement</span>
+<span class="token comment">// 因此只要你使用了 JSX，就要把 React 或 Nerv 引入</span>
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useSelector <span class="token punctuation">}</span>  <span class="token keyword">from</span> <span class="token string">'react-redux'</span>
+<span class="token comment">// 如果是使用的是 Nerv</span>
+<span class="token comment">// import { useSelector }  from 'nerv-redux'</span>
+<span class="token keyword">function</span> <span class="token function">Excited</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> counter <span class="token operator">=</span> <span class="token function">useSelector</span><span class="token punctuation">(</span><span class="token parameter">state</span> <span class="token operator">=></span> state<span class="token punctuation">.</span>counter<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="路由"></a><a href="#路由" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>路由</h2>
+<p>在旧版本中可以通过 <code>this.$router</code> 访问当前组件/页面路由的详情。在 Taro Next 对应的 API 是在 <code>@tarojs/taro</code> 中的 <code>Current.router</code>，两者的属性一模一样。</p>
+<pre><code class="hljs css language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Current <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@tarojs/taro'</span>
+<span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">componentWillMount</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Current.router 和 this.$router 和属性一样</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Current<span class="token punctuation">.</span>router<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 函数式组件</span>
+<span class="token keyword">function</span> <span class="token constant">C</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> router <span class="token operator">=</span> Current<span class="token punctuation">.</span>router
+  <span class="token comment">// Current.router 和 useRouter 返回的内容也一样</span>
+  <span class="token comment">// const router = useRouter()</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>而对于项目入口组件而言，路由信息我们推荐在 <code>componentDidShow</code> 生命周期的参数中直接读取。</p>
+<pre><code class="hljs css language-jsx"><span class="token comment">// app.js 项目入口文件</span>
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">componentDidShow</span> <span class="token punctuation">(</span>options <span class="token comment">/* 这里有你想要的路由信息 */</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>聪明的读者已经猜到了，<code>Current.router</code> 其实是访问小程序当前页面 <code>onLoad</code> 生命周期参数的快捷方式。</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="样式"></a><a href="#样式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>样式</h2>
+<p>在 Taro Next 中，没有 <a href="https://nervjs.github.io/taro/docs/component-style.html">组件的外部样式和全局样式</a> 的概念，组件的配置（<code>config.js</code>）是无效的，页面和入口文件引入的 CSS 都会变成全局 CSS ，没有了 <code>externalClasses</code> 和 <code>addGlobalClass</code> 这两个概念。</p>
+<p>如果你需要带作用域的 CSS，可以考虑使用 <a href="https://github.com/css-modules/css-modules">CSS Modules</a>。</p>
+<h2><a class="anchor" aria-hidden="true" id="编译配置"></a><a href="#编译配置" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>编译配置</h2>
+<p><a href="https://nervjs.github.io/taro/docs/1.3.24/config.html">jsxAttributeNameReplace</a> 配置已被移除。因为我们不需要配置 <code>externalClasses</code>，这个属性也失去了它存在的意义。</p>
+<h2><a class="anchor" aria-hidden="true" id="编译依赖库"></a><a href="#编译依赖库" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>编译依赖库</h2>
+<p><code>Webpack</code> 升级到 <code>Webpack@4</code>，<code>Babel</code> 升级到 <code>babel@7</code>。Webpack 升级是在 <code>taro@2</code> 中完成的，如果你是从 <code>taro@1</code> 升级上来的话，或许需要去看看 <a href="https://github.com/NervJS/taro/blob/feat_mini_webpack/docs/config-detail.md">Taro 2 更改</a> 查看使用 Webpack 编译后带来的变化。</p>
+<p>升级到 <code>babel@7</code> 意味着你的项目文件全部都会通过根目录的 <code>babel.config.js</code> 的配置进行编译。</p>
+<h2><a class="anchor" aria-hidden="true" id="eslint-和最佳实践"></a><a href="#eslint-和最佳实践" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ESLint 和最佳实践</h2>
+<p><code>eslint-plugin-taro</code> 已被废弃，你不再需要遵循它所规定的种种限制。你可以发挥你的创造力使用任何合法的 JSX 语法：</p>
+<pre><code class="hljs css language-jsx"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> View<span class="token punctuation">,</span> Text <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@tarojs/components'</span>
+<span class="token keyword">function</span> <span class="token constant">C</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 你可以选择不使用 JSX，但元素还是必须从 `@tarojs/components` 引入</span>
+  <span class="token keyword">const</span> title <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>View<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">'Numbers:'</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    numbers<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Text</span></span> <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>i<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>i<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Text</span></span><span class="token punctuation">></span></span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token punctuation">{</span>title<span class="token punctuation">}</span><span class="token plain-text">
+    </span><span class="token punctuation">{</span>numbers<span class="token punctuation">}</span><span class="token plain-text">
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span></span><span class="token punctuation">></span></span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>旧版本文档所提到的<a href="https://taro-docs.jd.com/taro/docs/1.3.24/best-practice.html">最佳实践</a>也不必再遵循。也就是说，即便你不给组件设置 <code>defaultProps</code>，自定义事件名不以 <code>on</code> 开头（还有其它的旧版本代码风格最佳实践），你的代码也能运行。但值得注意的是，遵循这样的 <strong>代码风格最佳实践</strong> 可以让你的代码更健壮，你的应用也会因此而收益。而对于另外的一些由于旧版本 Taro 执行机制的 hack（例如 render 调用两次，state 和 props 无法重名，不要打印组件），这类最佳实践可以不必理会。</p>
+<h2><a class="anchor" aria-hidden="true" id="ref--dom"></a><a href="#ref--dom" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ref &amp; DOM</h2>
+<p>Taro Next 在底层会维护一个精简的 DOM 系统，在框架中使用 <code>ref</code> 链接到的是一个 Taro Element 实例，因此你直接可以使用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> 的部分方法直接操作它。如果你需要获取原生小程序 DOM 实例，那需要使用原生小程序的 <a href="https://developers.weixin.qq.com/miniprogram/dev/api/wxml/SelectorQuery.html"><code>SelectorQuery</code></a> 来获取。</p>
+<blockquote>
+<p>大部分和渲染相关的 DOM 属性你都可以通过像 Web 开发一样获取或设置（如果有必要的话你甚至可以通过 <code>parentNode</code> 和 <code>childNodes</code> 访问元素的父元素和子元素！），但元素的位置你还是必须通过原生小程序 DOM 实例的 <code>boundingClientRect()</code> 和 <code>scrollOffset()</code> 方法获取。</p>
+</blockquote>
+<p>另外，如果你使用的是 React，就将无法使用字符串的形式来使用 <code>ref</code>。(Nerv 不受此影响)</p>
+<pre><code class="hljs css language-jsx"><span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token keyword">extends</span> <span class="token class-name">Components</span> <span class="token punctuation">{</span>
+  input <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">createRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token function">componentDidMount</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> node <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>input<span class="token punctuation">.</span>current <span class="token comment">// node 是一个 Taro Element 实例</span>
+    node<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// ok, 在 Web 开发中常见做法</span>
+
+    <span class="token comment">// 以下写法也能更新视图，但不推荐这么做，更推荐使用数据来驱动视图更新</span>
+    node<span class="token punctuation">.</span><span class="token function">setProerty</span><span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">,</span> <span class="token string">'input-css-class'</span><span class="token punctuation">)</span>
+    node<span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token string">'input-css-class'</span>
+    node<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> <span class="token string">'16px'</span>
+    node<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">'excited!'</span>
+
+    <span class="token comment">// 如果你需要获取原生小程序 DOM 的话</span>
+    <span class="token keyword">const</span> miniNode <span class="token operator">=</span> Taro<span class="token punctuation">.</span><span class="token function">createSelectorQuery</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token string">'#'</span> <span class="token operator">+</span> node<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Input</span></span> <span class="token attr-name">ref</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>input<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>在未来，我们可能会在 Taro Element 上提供一个可以快速访问小程序 DOM 实例的属性。目前请按照上述例子使用。</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="生命周期"></a><a href="#生命周期" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>生命周期</h2>
+<p>当你使用 React 时（使用 Nerv 不受此影响），以下生命周期被更名：</p>
+<ul>
+<li><code>componentWillMount()</code> -&gt; <code>UNSAFE_componentWillMount()</code></li>
+<li><code>componentWillReceiveProps</code> -&gt; <code>UNSAFE_componentWillReceiveProps()</code></li>
+<li><code>componentWillUpdate</code> -&gt; <code>UNSAFE_componentWillUpdate()</code></li>
+</ul>
+<p>新增一个生命周期: <a href="https://reactjs.org/docs/react-component.html#componentdidcatch"><code>componentDidCatch(err, info)</code></a> ，这是由框架本身（React 或 Nerv）提供的。<code>componentDidCatch(err, info)</code> 会在组件和它的子孙抛出错误时触发，第一个参数 <code>err</code> 指向抛出的错误，第二个参数 <code>info</code> 是组件的调用信息。</p>
+<blockquote>
+<p><code>componentDidCatch</code> 和原有的 <code>componentDidCatchError</code> 共同存在，区别在于 <code>componentDidCatchError</code> 只能在入口组件（App）中使用，对应原生小程序的生命周期 <code>onError()</code>，<code>componentDidCatch</code> 可以在任何 React/Nerv 类组件中使用（包括入口组件）。</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="hooks"></a><a href="#hooks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hooks</h2>
+<p>在 Taro Next，Taro 的<a href="https://nervjs.github.io/taro/docs/1.3.25/hooks.html">专有 Hooks</a>（例如 <code>usePageScroll</code>, <code>useReachBottom</code>）从 <code>@tarojs/taro</code> 中引入，框架自己的 Hooks （例如 <code>useEffect</code>, <code>useState</code>）从对应的框架引入。</p>
+<p>另外，旧版本的 Taro 可以在 Class Component 中使用 Hooks，但 React 是不允许这样的行为的。</p>
+<pre><code class="hljs css language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> usePageScroll<span class="token punctuation">,</span> useReachBottom <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@tarojs/taro'</span> <span class="token comment">// Taro 专有 Hooks</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span> <span class="token comment">// 框架 Hooks （基础 Hooks）</span>
+<span class="token comment">// 如果你使用 Nerv 的话</span>
+<span class="token comment">// import { useState, useEffect } from 'nervjs' // 框架 Hooks （基础 Hooks）</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="scope-和-componenttype"></a><a href="#scope-和-componenttype" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>$scope 和 $componentType</h2>
+<p>由于 Taro Next 没有自定义组件，所以也没有了 <code>this.$scope</code> 和 <code>this.$componentType</code> 的概念。<code>Current.page</code> 可以返回当前小程序页面的实例。</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/taro/next/docs/next/migration.html"><span class="arrow-prev">← </span><span>从旧版本迁移到 Taro Next</span></a><a class="docs-next button" href="/taro/next/docs/next/redux.html"><span>使用 Redux</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#api">API</a></li><li><a href="#项目页面配置">项目/页面配置</a></li><li><a href="#使用第三方-react-库">使用第三方 React 库</a></li><li><a href="#路由">路由</a></li><li><a href="#样式">样式</a></li><li><a href="#编译配置">编译配置</a></li><li><a href="#编译依赖库">编译依赖库</a></li><li><a href="#eslint-和最佳实践">ESLint 和最佳实践</a></li><li><a href="#ref--dom">Ref &amp; DOM</a></li><li><a href="#生命周期">生命周期</a></li><li><a href="#hooks">Hooks</a></li><li><a href="#scope-和-componenttype">$scope 和 $componentType</a></li></ul></nav></div><footer class="footer" id="footer"><div class="grid_c1 footer_cont"><div class="footer_logo_container"><div class="footer_logo"></div><span class="footer_designedby"></span></div><div class="footer_link_container"><div class="footer_link"><h3 class="footer_link_tit footer_link_tit1">相关资源</h3><p><a class="link" href="https://taro.jd.com/" target="_blank">Taro</a></p><p><a class="link" href="https://taro-ui.jd.com/" target="_blank">Taro UI</a></p><p><a class="link" href="https://at-ui.github.io/at-ui/#/zh" target="_blank">At-UI</a></p><p><a class="link" href="https://nerv.aotu.io/" target="_blank">Nerv</a></p><p><a class="link" href="https://athena.aotu.io/" target="_blank">Athena</a></p></div><div class="footer_link"><h3 class="footer_link_tit footer_link_tit2">社区</h3><p><a href="https://github.com/NervJS/taro/issues" target="_blank">GitHub</a></p><p><a href="https://taro-club.jd.com" target="_blank">Taro BBS</a></p><p class="footer_link_connect_wrap"><span class="footer_link_connect footer_link_wechat">微信<span class="wechat_qrcode_icon"><svg t="1554966525626" class="icon svgicon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2588" data-spm-anchor-id="a313x.7781069.0.i0"><path d="M240.071 241.095h59.278v59.278h-59.278v-59.278z" fill="" p-id="2589"></path><path d="M405.959 134.485h-272.611v272.611h106.723v47.445h59.278v-47.445h106.723v-59.278h47.445v-47.445h-47.445l-0.114-165.888zM346.795 347.819h-154.169v-154.055h154.055v154.055h0.114zM240.071 727.154h59.278v59.278h-59.278v-59.278zM726.016 241.095h59.278v59.278h-59.278v-59.278zM512.683 509.042v63.943h59.278v-59.165h47.445v-59.278h-47.445v-47.445h-59.278v101.945zM512.683 725.789v60.643h59.278v-106.723h47.445v-59.278h-106.723v105.358zM571.961 786.432h47.445v47.445h-47.445v-47.445zM453.405 833.877v59.165h118.557v-59.165h-118.557z" fill="" p-id="2590"></path><path d="M678.685 679.709h-59.278v106.723h106.61v-59.278h-47.331v-47.445zM726.016 893.042h166.002v-59.165h-106.723v-47.445h-59.278v106.61zM892.018 513.821v-59.278h-106.723v59.278h106.723zM832.739 727.154h59.278v59.278h-59.278v-59.278zM453.405 347.819h59.278v59.278h-59.278v-59.278zM726.016 454.542v-47.445h166.002v-272.611h-272.611v59.278h-106.723v47.445h106.723v59.165h-47.445v47.445h47.445v59.278h59.278v47.445h47.331zM678.685 193.763h154.055v154.055h-154.055v-154.055zM678.685 572.985h47.331v47.445h-47.331v-47.445zM785.294 679.709h-59.278v47.445h106.723v-106.723h59.278v-47.445h-106.723v106.723zM453.405 241.095h59.278v59.278h-59.278v-59.278zM299.349 513.821h47.445v59.165h-47.445v-59.165zM453.405 454.542h-106.61v59.278h59.165v59.165h47.445v-118.443z" fill="" p-id="2591"></path><path d="M405.959 786.432v-106.723h47.445v-59.278h-213.333v-106.61h-106.723v59.278h59.278v47.445h-59.278v272.611h272.611v-59.278h47.445v-47.445h-47.445zM346.795 833.877h-154.169v-154.169h154.055v154.169h0.114zM453.405 572.985h59.278v47.445h-59.278v-47.445zM619.406 513.821h59.278v59.165h-59.278v-59.165zM726.016 513.821h59.278v59.165h-59.278v-59.165z" fill="" p-id="2592"></path></svg></span></span><span class="footer_link_wechat_img"><img src="https://camo.githubusercontent.com/10834a234b99a5880b5dff7c0ca7235e2a0772e7/687474703a2f2f696d6732302e333630627579696d672e636f6d2f7562612f6a66732f7432303139372f3238332f313638373136383837342f3133363034322f32623464383131662f35623330613635634e39643166303366312e706e67"/></span></p></div><div class="footer_link"><h3 class="footer_link_tit footer_link_tit3">关于我们</h3><p><a href="https://aotu.io/" target="_blank">凹凸实验室</a></p><p><a href="https://aotu.io/join/" target="_blank">加入我们</a></p><p><a href="mailto:taro@jd.com?subject=【Taro 合作】合作标题">联系我们</a></p></div><div class="footer_link"><h3 class="footer_link_tit footer_link_tit4">感谢</h3><p><a href="http://jdc.jd.com/" target="_blank">用户体验设计部</a></p><p><a href="https://github.com/nervjs/taro#%E8%B4%A1%E7%8C%AE%E8%80%85%E4%BB%AC" target="_blank">Taro 贡献者们</a></p></div></div></div><div class="copyright"><div class="in">Copyright © 2019. All Rights Reserved. 粤ICP备15077732号-2</div></div></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '57b9948bff42bc0dbc6c219556fbae35',
+                indexName: 'taro',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
