@@ -1242,17 +1242,17 @@
     xcode "^2.0.0"
     xmldoc "^0.4.0"
 
-"@tarojs/taro@2.0.0-beta.13":
-  version "2.0.0-beta.13"
-  resolved "https://registry.npm.taobao.org/@tarojs/taro/download/@tarojs/taro-2.0.0-beta.13.tgz?cache=0&sync_timestamp=1577772870840&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Ftaro%2Fdownload%2F%40tarojs%2Ftaro-2.0.0-beta.13.tgz#6537b4263a27641fa51e8f98673f9ea48919af01"
-  integrity sha1-ZTe0JjonZB+lHo+YZz+epIkZrwE=
+"@tarojs/taro@2.0.7":
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro/-/taro-2.0.7.tgz#eeb8d998fbc66c5b55eec371bc3506a22aad0e43"
+  integrity sha512-W/l7LdyNCX/JE9o4y3O2XgM1RYlG2M8h0bqsd7R7pLIN+yL8EKmaG6Ok8xJqN8g9/QcwPI85T04VbLVg/Gebbg==
   dependencies:
-    "@tarojs/utils" "2.0.0-beta.13"
+    "@tarojs/utils" "2.0.7"
 
-"@tarojs/utils@2.0.0-beta.13":
-  version "2.0.0-beta.13"
-  resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-2.0.0-beta.13.tgz?cache=0&sync_timestamp=1577772253852&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Futils%2Fdownload%2F%40tarojs%2Futils-2.0.0-beta.13.tgz#a3b9b4a36ab71ac4e2a3fddd96f4fb006862ea62"
-  integrity sha1-o7m0o2q3GsTio/3dlvT7AGhi6mI=
+"@tarojs/utils@2.0.7":
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@tarojs/utils/-/utils-2.0.7.tgz#f6d916e2346bef62dee1e9f1340849ec30828834"
+  integrity sha512-G1bTxpGLIXaEI/zfJWKOk8cFFtQC0jxTWQsbT/iUtPrv9gltC/VvOHg/pCRMqY+7lCM0wmmA6a1x+q7/7Fd22w==
 
 "@types/babel-types@^7.0.7":
   version "7.0.7"
@@ -8931,9 +8931,9 @@ xtend@~4.0.0, xtend@~4.0.1:
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
 y18n@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
-  integrity sha1-bRX7qITAhnnA136I53WegR4H+kE=
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.2.tgz#85c901bd6470ce71fc4bb723ad209b70f7f28696"
+  integrity sha512-uGZHXkHnhF0XeeAPgnKfPv1bgKAYyVvmNL1xlKsPYZPaIHxGti2hHqvOCQv71XMsLxu1QjergkqogUnms5D3YQ==
 
 yallist@^2.1.2:
   version "2.1.2"

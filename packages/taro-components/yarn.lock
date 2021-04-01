@@ -652,10 +652,10 @@
   version "1.1.3"
   resolved "https://registry.npmjs.org/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
 
-"@tarojs/taro-h5@2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@tarojs/taro-h5/-/taro-h5-2.0.5.tgz#00ea704c9dde2c94eda11c66b1b633d162e43c51"
-  integrity sha512-o0UXRZLvOAtieVAysFOqrfy99Yz1VW3vDw7ljIDXx0M/8UOknowrBPkoyUCHT7I/RUIvmeqR6Ao5q4gO+LqatA==
+"@tarojs/taro-h5@2.0.7":
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@tarojs/taro-h5/-/taro-h5-2.0.7.tgz#21a575b861ef1f38de7e51cac64204a643085477"
+  integrity sha512-IN45D5IopI2CL8/YJnfUlpDHM+LC4eFVdNqS8I9zlRGsPDqggr/F6832Qp/pjnD8eakCrQaBnEOb73kni/qRtA==
   dependencies:
     base64-js "^1.3.0"
     jsonp-retry "^1.0.3"
@@ -1478,10 +1478,10 @@ babel-plugin-transform-strict-mode@^6.24.1:
     babel-runtime "^6.22.0"
     babel-types "^6.24.1"
 
-babel-plugin-transform-taroapi@2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-taroapi/-/babel-plugin-transform-taroapi-2.0.5.tgz#4e83072650729dfbf16d9cd7c4bb56bcb2f32e66"
-  integrity sha512-IaUsHOgdolMyAqIc5xn+kygObg/k27kSvEj8fNnRWSUsNPHlBUmZcZAkSXsTEuqCW/CdtioSLauCkP3eymLP+g==
+babel-plugin-transform-taroapi@2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-taroapi/-/babel-plugin-transform-taroapi-2.0.7.tgz#ba6ea66369268326be9a121b6a5ed9765690d6b6"
+  integrity sha512-SrWjVUTInTOgiUBp+Aq8HF1iobPlRXswdBlc4VZ7+ZAjf5xX66/ee/UgKrRttTxQm37NsoqWWNa36b29h/1Ypg==
 
 babel-preset-es2015@^6.24.1, babel-preset-es2015@^6.9.0:
   version "6.24.1"
@@ -7431,8 +7431,9 @@ xtend@^4.0.0, xtend@~4.0.0, xtend@~4.0.1:
   resolved "https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 
 y18n@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.npmjs.org/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.2.tgz#85c901bd6470ce71fc4bb723ad209b70f7f28696"
+  integrity sha512-uGZHXkHnhF0XeeAPgnKfPv1bgKAYyVvmNL1xlKsPYZPaIHxGti2hHqvOCQv71XMsLxu1QjergkqogUnms5D3YQ==
 
 "y18n@^3.2.1 || ^4.0.0":
   version "4.0.0"
